@@ -1,31 +1,10 @@
-'use strict';
-/** @type {import('sequelize-cli').Migration} */
-module.exports = {
-  async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Customers', {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
-      },
-      name: {
-        type: Sequelize.STRING
-      },
-      cpf: {
-        type: Sequelize.STRING
-      },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      }
-    });
-  },
-  async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Customers');
-  }
+module.exports = (sequelize, DataTypes) => {
+  const Customer = sequelize.define('Customer', {
+    name: DataTypes.STRING,
+    cpf: DataTypes.STRING
+  }, {});
+  Customer.associate = function(models) {
+    Customer.hasMany(models.Sale, { foreignKey: 'customerId', as: 'sales' });
+  };
+  return Customer;
 };

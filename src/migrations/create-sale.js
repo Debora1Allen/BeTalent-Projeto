@@ -1,43 +1,15 @@
-'use strict';
-/** @type {import('sequelize-cli').Migration} */
-module.exports = {
-  async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Sales', {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
-      },
-      customerId: {
-        type: Sequelize.INTEGER
-      },
-      productId: {
-        type: Sequelize.INTEGER
-      },
-      quantity: {
-        type: Sequelize.INTEGER
-      },
-      unitPrice: {
-        type: Sequelize.FLOAT
-      },
-      totalPrice: {
-        type: Sequelize.FLOAT
-      },
-      date: {
-        type: Sequelize.DATE
-      },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      }
-    });
-  },
-  async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Sales');
-  }
+module.exports = (sequelize, DataTypes) => {
+  const Sale = sequelize.define('Sale', {
+    customerId: DataTypes.INTEGER,
+    productId: DataTypes.INTEGER,
+    quantity: DataTypes.INTEGER,
+    unitPrice: DataTypes.FLOAT,
+    totalPrice: DataTypes.FLOAT,
+    date: DataTypes.DATE
+  }, {});
+  Sale.associate = function(models) {
+    Sale.belongsTo(models.Customer, { foreignKey: 'customerId', as: 'customer' });
+    Sale.belongsTo(models.Product, { foreignKey: 'productId', as: 'product' });
+  };
+  return Sale;
 };
