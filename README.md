@@ -47,7 +47,7 @@ Esta é uma API Node.js e Express para gerenciar vendas, clientes e produtos. A 
 
 2. Instale as dependências:
  ```bash
- instalação npm
+ npm install
  ```
 
 3. Crie um arquivo `.env` no diretório raiz e adicione as variáveis ​​de ambiente necessárias (consulte a seção [Variáveis ​​de ambiente](#variáveis ​​de ambiente)).
@@ -97,22 +97,22 @@ Crie um arquivo `.env` no diretório raiz com as seguintes variáveis ​​de a
 
 ```
 DB_HOST=localhost
-DB_USER = raiz
-DB_PASSWORD=sua senha
-DB_NAME=gerenciamento_de_vendas
-JWT_SECRET=seujwtsegredo
+DB_USER=root
+DB_PASSWORD=yourpassword
+DB_NAME=sales_management
+JWT_SECRET=yourjwtsecret
 ```
 
 ## Configuração do banco de dados
 
 1. Crie o banco de dados MySQL:
  ```sql
- CRIAR BANCO DE DADOS sales_management;
+ CREATE DATABASE sales_management;
  ```
 
 2. Execute as migrações:
  ```bash
- npx sequelize-cli db:migrar
+npx sequelize-cli db:migrate
  ```
 
 ## Executando o aplicativo
