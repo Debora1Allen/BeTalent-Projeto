@@ -21,7 +21,7 @@ Esta é uma API Node.js e Express para gerenciar vendas, clientes e produtos. A 
 - [Middleware](#middleware)
 - [Licença](#licença)
 
-## Technologies Used
+## Tecnologias usadas
 
 - Node.js
 - Express
