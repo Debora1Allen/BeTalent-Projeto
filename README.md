@@ -15,20 +15,20 @@ Esta é uma API Node.js e Express para gerenciar vendas, clientes e produtos. A 
 - [Instalação](#instalação)
 - [Estrutura do Projeto](#estrutura-do-projeto)
 - [Variáveis ​​de ambiente](#variáveis-de-ambiente)
-- [Configuração do banco de dados](#database-setup)
-- [Executando o aplicativo](#running-the-application)
+- [Configuração do banco de dados](#configuração-do-banco-de-dados)
+- [Executando o aplicativo](#executando-o-aplicativo)
 - [API Endpoints](#api-endpoints)
 - [Middleware](#middleware)
 - [Licença](#licença)
 
-## Tecnologias usadas
+## Technologies Used
 
--Node.js
-- Expresso
-- Sequelar (ORM)
+- Node.js
+- Express
+- Sequelize (ORM)
 - MySQL
-- JWT para autenticação
-- Analisador de corpo para lidar com solicitações JSON
+- JWT for authentication
+- Body-parser for handling JSON requests
 
 ## Instalação
 
@@ -91,7 +91,7 @@ BeTalent-Projeto/
 
 ```
 
-## Variáveis ​​ambientais
+## Variáveis ​​de ambiente
 
 Crie um arquivo `.env` no diretório raiz com as seguintes variáveis ​​de ambiente:
 
@@ -193,7 +193,7 @@ npm start
 
 ##Middleware
 
-### Middleware de autenticação
+### Middleware
 
 - `authMiddleware.js`
  - Protege rotas para garantir que apenas usuários logados possam acessar determinados endpoints.
