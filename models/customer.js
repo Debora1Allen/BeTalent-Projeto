@@ -1,13 +1,24 @@
 'use strict';
+const {
+  Model
+} = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
-  const Customer = sequelize.define('Customer', {
+  class Customer extends Model {
+    /**
+     * Helper method for defining associations.
+     * This method is not a part of Sequelize lifecycle.
+     * The `models/index` file will call this method automatically.
+     */
+    static associate(models) {
+      // define association here
+    }
+  }
+  Customer.init({
     name: DataTypes.STRING,
     cpf: DataTypes.STRING
-  }, {});
-  Customer.associate = function(models) {
-    Customer.hasMany(models.Address, { foreignKey: 'customerId', as: 'addresses' });
-    Customer.hasMany(models.Telephone, { foreignKey: 'customerId', as: 'telephones' });
-    Customer.hasMany(models.Sale, { foreignKey: 'customerId', as: 'sales' });
-  };
+  }, {
+    sequelize,
+    modelName: 'Customer',
+  });
   return Customer;
 };

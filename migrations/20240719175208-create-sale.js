@@ -19,12 +19,12 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       unitPrice: {
-        type: Sequelize.DECIMAL
+        type: Sequelize.FLOAT
       },
       totalPrice: {
-        type: Sequelize.DECIMAL
+        type: Sequelize.FLOAT
       },
-      saleDate: {
+      date: {
         type: Sequelize.DATE
       },
       createdAt: {

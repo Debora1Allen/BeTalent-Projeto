@@ -21,7 +21,7 @@ module.exports = {
       state: {
         type: Sequelize.STRING
       },
-      zip: {
+      zipcode: {
         type: Sequelize.STRING
       },
       createdAt: {
